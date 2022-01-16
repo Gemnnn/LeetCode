@@ -8,8 +8,6 @@ namespace _1_TwoSum
 {
     internal class Program
     {
-
-
         /*
         
         [Question]
@@ -43,8 +41,32 @@ namespace _1_TwoSum
             int[] output = { 0, 1 };
             if ((solution.TwoSum(nums, target)).SequenceEqual(output))
             {
-                Console.WriteLine("Accept");
-                Console.ReadLine();
+                // Example 2
+                nums = new int[] { 3, 2, 4 };
+                target = 6;
+                output = new int[] { 1, 2 };
+                if ((solution.TwoSum(nums, target)).SequenceEqual(output))
+                {
+                    // Example 3
+                    nums = new int[] { 3, 3 };
+                    target = 6;
+                    output = new int[] { 0, 1 };
+                    if ((solution.TwoSum(nums, target)).SequenceEqual(output))
+                    {
+                        Console.WriteLine("Accept");
+                        Console.ReadLine();
+                    }
+                    else
+                    {
+                        Console.WriteLine("Fail at Example 3");
+                        Console.ReadLine();
+                    }
+                }
+                else 
+                {
+                    Console.WriteLine("Fail at Example 2");
+                    Console.ReadLine();
+                }
             }
             else
             {
