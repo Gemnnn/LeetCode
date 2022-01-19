@@ -13,8 +13,13 @@ namespace _9_PalindromeNumber
             var solution = new Solution();
 
             // Example 1
-            int x = 121;
+            int x = 1000021;
+            if (solution.IsPalindrome(x))
+            {
+                Console.WriteLine("");
+            }
             Console.WriteLine(solution.IsPalindrome(x));
+            Console.ReadLine();
 
             // Example 2
             //int x = -121;
@@ -30,22 +35,26 @@ namespace _9_PalindromeNumber
         {
             public bool IsPalindrome(int x)
             {
-                int firstDigit = 0;
-                while(x.ToString().Length < 1)
+                if (x < 0)
                 {
-                    x /= 10;
-                    firstDigit = x;
-                }
-
-                int lastDigit = x % 10;
-
-                if (firstDigit == lastDigit)
-                {
-                    return true;
+                    return false;
                 }
                 else
                 {
-                    return false;   
+                    int firstDigit = x;
+                    while (firstDigit >= 10)
+                        firstDigit /= 10;
+
+                    int lastDigit = x % 10;
+
+                    if (firstDigit == lastDigit)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
                 }
             }
         }
