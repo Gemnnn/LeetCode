@@ -1,0 +1,37 @@
+/**
+ * @param {number[]} nums
+ * @return {number[][]}
+ */
+var threeSum = function(nums) {
+    if (nums.length < 3) return [];
+    
+    let result = new Set();
+    nums.sort((a, b) => a - b);
+    
+    const n = nums.length;
+    
+    for(let i = 0; i < n - 2 && nums[i] <= 0; i++){
+        if (i > 0 && nums[i] === nums[i - 1]) continue;
+        
+        for(let j = i + 1; j < n - 1; j++){
+            if (j > i + 1 && nums[j] === nums[j - 1]) continue;
+            
+            const target = -(nums[i] + nums[j]);
+            
+            if (target < nums[j]) break;
+            
+            if (target > nums[n-1]) continue;
+            
+            for(let k = j + 1; k < n && nums[k] <= target; k++){
+                if (k > j + 1 && nums[k] === nums[k - 1]) continue;
+                
+                if(nums[k] === target){
+                    result.add(JSON.stringify([nums[i], nums[j], nums[k]]));
+                    break; 
+                }
+            }
+        }
+    }
+
+    return Array.from(result).map(JSON.parse);
+};
